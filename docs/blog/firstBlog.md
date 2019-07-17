@@ -67,6 +67,7 @@ features:
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
 ```
+heroImage后面的图片是放在`.vuepress/public`下面的,自动读取
 
 8、配置路由
 ```js
@@ -113,7 +114,7 @@ module.exports = {
 ```
 
 10、加侧边栏
-```
+```js
 //.vupress/config.js
 module.exports = {
   themeConfig: {
@@ -129,8 +130,8 @@ module.exports = {
 1. 在github上新建项目
 2. 把本地项目push到远程仓库
 3. 修改` .vupress/config.js`的仓库目录
-4. base 设置为与远程仓库 /<REPO>/同名，比如我的远程是blog，本地是blog-heye，就改成blog。
-5. 根目录下创建一个deploy.sh文件
+4. `base `设置为与远程仓库` /<REPO>/`同名，比如我的远程是`blog`，本地是`blog-heye`，就改成blog。
+5. 根目录下创建一个`deploy.sh`文件
 
 ```
 # 确保脚本抛出遇到的错误
@@ -155,13 +156,13 @@ cd -
 
 如果`docs/.vuepress/dist`已经生成，在github上没有找到`gh-pages`分支，说明提交出错.
 修改deploy.sh提交地址为http格式如下：
-```$xslt
+```
 git push -f https://github.com/<USERNAME>/<REPO>.git master:gh-pages
 
 ```
 
 6. 在 `GitHub` 项目点击` Setting `按钮，找到 `GitHub Pages - Source`，选择 `gh-pages `分支，点击 `Save`按钮后，静静地等待它部署完成即可。
-
+但是我设置的时候发现已经默认是`gh-pages `分支了。
 
 ### 最后
 
@@ -173,5 +174,8 @@ github：https://github.com/heye1109/blog/
 
 <br/>
 
-参考链接：
+#### 参考链接：
+
+[vuePress官网](https://vuepress.vuejs.org/zh/guide/getting-started.html#%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85)
+
 [VuePress + GitHub Pages 搭建个人博客](https://www.jianshu.com/p/6e8c608f24c8)
