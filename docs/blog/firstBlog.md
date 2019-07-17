@@ -162,5 +162,16 @@ git push -f https://github.com/<USERNAME>/<REPO>.git master:gh-pages
 
 6. 在 `GitHub` 项目点击` Setting `按钮，找到 `GitHub Pages - Source`，选择 `gh-pages `分支，点击 `Save`按钮后，静静地等待它部署完成即可。
 
+
+### 最后
+
+博客地址：https://heye1109.github.io/blog
+
+github：https://github.com/heye1109/blog/
+
+每次更新内容，就push，然后双击deploy.sh即可
+
+<br/>
+
 参考链接：
-[](https://www.jianshu.com/p/6e8c608f24c8)
+[VuePress + GitHub Pages 搭建个人博客](https://www.jianshu.com/p/6e8c608f24c8)
