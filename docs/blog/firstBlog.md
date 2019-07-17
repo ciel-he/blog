@@ -1,6 +1,6 @@
 # vuePress+github搭建博客
 
-### vuePress本地项目
+### 一、vuePress本地项目
 [Vuepress官网](https://vuepress.vuejs.org/zh/)
 
 
@@ -92,15 +92,24 @@ module.exports = {
 module.exports = {
     themeConfig: {
         // 你的GitHub仓库，请正确填写
-        repo: 'https://github.com/xxxxxxx/blog-demo',
+        repo: 'https://github.com/xxxxxxx/blog',
         // 自定义仓库链接文字。
         repoLabel: 'My GitHub',
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'FirstBlog', link: '/blog/FirstBlog.md' }
+            { text: 'FirstBlog', link: '/blog/firstBlog.md' }
         ]
     }
 }
+```
+在 `docs` 目录下新建 `blog `文件夹。
+在 `blog` 目录下创建 `/blog/firstBlog.md` 作为我们第一篇博客的内容：
+```
+# 博客
+
+这里随便写内容了。。。
+
+比如我的就是该页内容
 ```
 
 10、加侧边栏
@@ -116,5 +125,42 @@ module.exports = {
 }
 ```
 
-### 部署
+### 二、部署
+1. 在github上新建项目
+2. 把本地项目push到远程仓库
+3. 修改` .vupress/config.js`的仓库目录
+4. base 设置为与远程仓库 /<REPO>/同名，比如我的远程是blog，本地是blog-heye，就改成blog。
+5. 根目录下创建一个deploy.sh文件
 
+```
+# 确保脚本抛出遇到的错误
+set -e
+
+# 生成静态文件
+npm run docs:build
+
+# 进入生成的文件夹
+cd docs/.vuepress/dist
+
+git init
+git add -A
+git commit -m 'deploy'
+
+# 如果发布到 https://<USERNAME>.github.io/<REPO>
+git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
+
+cd -
+```
+双击` deploy.sh` 运行脚本，会自动在我们的 GitHub 仓库中，创建一个名为 `gh-pages `的分支，而我们要部署到` GitHub Pages `的正是这个分支。
+
+如果`docs/.vuepress/dist`已经生成，在github上没有找到`gh-pages`分支，说明提交出错.
+修改deploy.sh提交地址为http格式如下：
+```$xslt
+git push -f https://github.com/<USERNAME>/<REPO>.git master:gh-pages
+
+```
+
+6. 在 `GitHub` 项目点击` Setting `按钮，找到 `GitHub Pages - Source`，选择 `gh-pages `分支，点击 `Save`按钮后，静静地等待它部署完成即可。
+
+参考链接：
+[](https://www.jianshu.com/p/6e8c608f24c8)

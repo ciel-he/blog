@@ -1,20 +1,20 @@
 module.exports = {
-  base: '/blog-heye/',
-  title: 'blog-heye',
+  base: '/blog/',
+  title: '一条大何全靠浪',
   description: 'Vuepress blog demo',
 
   themeConfig: {
     // 你的GitHub仓库，请正确填写
-    repo: 'https://github.com/xxxxxxx/blog-demo',
+    repo: 'https://github.com/heye1109/blog',
     // 自定义仓库链接文字。
-    repoLabel: 'My GitHub',
+    repoLabel: 'GitHub',
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'FirstBlog', link: '/blog/firstBlog.md' }
+      { text: '主页', link: '/' },
+      { text: '博客', link: '/blog/firstBlog.md' }
     ],
     sidebar: [
       ['/', '首页'],
-      ['/blog/firstBlog.md', '我的第一篇博客']
+      ['/blog/firstBlog.md', 'vuePress+github搭建博客']
     ]
   }
 }
